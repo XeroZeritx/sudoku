@@ -14,7 +14,7 @@ for (let i = 0; i < 9; i++) {
 let casillaSeleccionada = null;
 
 // Dificultad del juego -> Cantidad de casillas que se esconderan del jugador
-let dificultad = 45;
+let dificultad = localStorage.getItem("dificultad") || 30;
 
 // Reinicia las matrices de sudoku, jugador y visibles
 function reiniciarMatrices() {

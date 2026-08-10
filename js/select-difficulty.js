@@ -1,5 +1,17 @@
-let level1 = document.getElementById("ez-level");
+// Guarda la dificultad fácil y abre el Sudoku.
+document.getElementById("facil").addEventListener("click", () => {
+    localStorage.setItem("dificultad", 30);
+    window.location.href = "juego.html";
+});
 
-level1.addEventListener("click", function() {
-    console.log("Dificultad seleccionada:", level1.value);
+// Guarda la dificultad media y abre el Sudoku.
+document.getElementById("media").addEventListener("click", () => {
+    localStorage.setItem("dificultad", 40);
+    window.location.href = "juego.html";
+});
+
+// Guarda la dificultad difícil y abre el Sudoku.
+document.getElementById("dificil").addEventListener("click", () => {
+    localStorage.setItem("dificultad", 50);
+    window.location.href = "juego.html";
 });
