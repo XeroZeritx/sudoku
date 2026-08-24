@@ -1,14 +1,27 @@
-.interfaz-mainContent {
-    width: 20%;
-    height:30%;
-    display:flex;
-    justify-content: flex-start;
+/* User Profile Section */
+.user-profile {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
-.img-user {
-    width: 40%;
-    height: 40%;
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+.user-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-name p {
+    margin: 0;
 }
 
+/* */
 .interfaz-mainTittle{
     display:flex;
     justify-content:center;
