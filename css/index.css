@@ -1,33 +1,116 @@
 /* User Profile Section */
 .user-profile {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 30px;
+    left: 40px;
 }
 .user-info {
     display: flex;
     align-items: center;
-    gap: 10px;
     text-decoration: none;
-    color: inherit;
+}
+.user-image {
+    width: 90px;
+    height: 90px;
+    border: 7px solid #762d6e;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 .user-image img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 105%;
+    height: 105%;
     object-fit: cover;
+    display: block;
+}
+.user-name {
+    margin-left: -25px;
+    padding: 16px 40px 16px 45px;
+    background: linear-gradient(
+        to right,
+        #82436f,
+        #6f2766
+    );
+    border-radius: 0 25px 25px 0;
 }
 .user-name p {
     margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
 }
 
-/* */
-.interfaz-mainTittle{
-    display:flex;
-    justify-content:center;
+/* Title Section*/
+.tittle-game {
+    display: flex;
+    justify-content: center;
+    padding-top: 220px;
 }
-.interfaz-mainOptions {
-    display:flex;
+.tittle-game h1 {
+    margin: 0;
+    font-size: 70px;
+    letter-spacing: 5px;
+    text-shadow: 0 5px 10px white
+}
+
+/* Options section*/
+.menu-options {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+    margin-top: 110px;
 }
+#button-start {
+    background: linear-gradient(
+        to right,
+        #d93848,
+        #f14359
+    );
+}
+#button-tips {
+    background: linear-gradient(
+        to right,
+        #247da9,
+        #3d9ed0
+    );
+}
+#button-settings {
+    background: linear-gradient(
+        to right,
+        #d9a91c,
+        #ffd766
+    );
+}
+#button-exit {
+    background: linear-gradient(
+        to right,
+        #555555,
+        #999999
+    );
+}
+#button-start, #button-tips, #button-settings, #button-exit {
+    width: 600px;
+    height: 100px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow:
+        0 8px 0 rgba(0, 0, 0, 0.2),
+        0 12px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+#button-start:hover, #button-tips:hover, #button-settings:hover, #button-exit:hover {
+    transform: translateY(-4px);
+}
+#button-start:active, #button-tips:active, #button-settings:active, #button-exit:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* responsive css desing*/

@@ -10,7 +10,13 @@ body {
     margin: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: rgb(108, 78, 106);
+    margin: 0;
+    background: linear-gradient(
+        180deg,
+        #66546c 0%,
+        #7d586d 50%,
+        #a05d72 100%
+    );
 }
 
 img {
