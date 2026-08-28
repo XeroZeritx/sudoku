@@ -49,13 +49,14 @@
     padding-top: 220px;
     padding-left: 15px;
     padding-right: 15px;
+    color: white;
 }
 .tittle-game h1 {
     margin: 0;
     font-size: 70px;
     letter-spacing: 5px;
     text-align: center;
-    text-shadow: 0 5px 10px white;
+    text-shadow: 0 5px 10px black;
 }
 
 

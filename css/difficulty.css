@@ -1,0 +1,176 @@
+/* select the difficulty */
+.select-difficulty {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+.select-difficulty-content {
+    width: 600px;
+    max-width: 85vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* tittle section */
+.select-difficulty-content h1 {
+    margin: 0 0 70px 0;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    text-shadow:
+        0 5px 10px black;
+}
+
+
+/* levels section */
+.select-difficulty-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+#easy-difficulty, #mid-difficulty, #hard-difficulty {
+    width: 100%;
+    height: 90px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow:
+        0 8px 0 rgba(0, 0, 0, 0.2),
+        0 12px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+#easy-difficulty {
+    background: linear-gradient(
+        to right,
+        #2fa866,
+        #52c985
+    );
+}
+#mid-difficulty {
+    background: linear-gradient(
+        to right,
+        #d9a91c,
+        #ffd766
+    );
+}
+#hard-difficulty {
+    background: linear-gradient(
+        to right,
+        #d93848,
+        #f14359
+    );
+}
+#easy-difficulty:hover, #mid-difficulty:hover, #hard-difficulty:hover {
+    transform: translateY(-4px);
+}
+#easy-difficulty:active, #mid-difficulty:active, #hard-difficulty:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* responsive desing settings */
+@media (max-width: 768px) {
+    /* select the difficulty */
+    .select-difficulty {
+        padding: 30px 15px;
+    }
+    .select-difficulty-content {
+        width: 85vw;
+        max-width: 600px;
+    }
+
+
+    /* tittle section */
+    .select-difficulty-content h1 {
+        margin-bottom: 55px;
+
+        font-size: clamp(42px, 8vw, 55px);
+        letter-spacing: 2px;
+    }
+
+
+    /* levels section */
+    .select-difficulty-options {
+        width: 100%;
+        gap: 20px;
+    }
+    #easy-difficulty, #mid-difficulty, #hard-difficulty {
+        width: 100%;
+        height: 80px;
+        font-size: 23px;
+        border-radius: 16px;
+    }
+}
+@media (max-width: 480px) {
+    /* select the difficulty */
+    .select-difficulty {
+        padding: 25px 10px;
+    }
+    .select-difficulty-content {
+        width: 85vw;
+        max-width: none;
+    }
+
+
+    /* tittle section */
+    .select-difficulty-content h1 {
+        margin-bottom: 45px;
+        font-size: clamp(34px, 9vw, 42px);
+        letter-spacing: 1px;
+    }
+
+
+    /* levels section */
+    .select-difficulty-options {
+        gap: 15px;
+    }
+    #easy-difficulty, #mid-difficulty, #hard-difficulty {
+        width: 100%;
+        height: 65px;
+        font-size: 19px;
+        border-radius: 14px;
+    }
+}
+@media (max-width: 360px) {
+    /* select the difficulty */
+    .select-difficulty {
+        padding: 20px 8px;
+    }
+    .select-difficulty-content {
+        width: 85vw;
+    }
+
+    
+    /* tittle section */
+    .select-difficulty-content h1 {
+        margin-bottom: 35px;
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+
+    /* levels section */
+    .select-difficulty-options {
+        gap: 12px;
+    }
+    #easy-difficulty, #mid-difficulty, #hard-difficulty {
+        width: 100%;
+        height: 60px;
+        font-size: 17px;
+        border-radius: 13px;
+    }
+}
