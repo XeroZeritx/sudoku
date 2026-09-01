@@ -1,38 +1,38 @@
-let errores = 0;
-// Inicia una nueva partida, reiniciando los errores y generando un nuevo Sudoku.
-function iniciarJuego(){
-    errores = 0;
-    generarSudoku();
-    dibujarTablero();
+let errors = 0;
+// Inicia una nueva partida, reiniciando los errors y generando un nuevo Sudoku.
+function StartGame(){
+    errors = 0;
+    GenerateSudoku();
+    BoardDrawing();
 }
 
-// Aumenta el contador de errores y finaliza la partida si el jugador alcanza 3 errores.
-function errorJugador(){
-    errores++;
-    console.log("Errores:", errores);
-    if (errores >= 3){
-        alert("Has perdido.");
+// Aumenta el contador de errors y finaliza la partida si el jugador alcanza 3 errors.
+function ErrorPlayer () {
+    errors++;
+    console.log("Errors:", errors);
+    if (errors >= 3){
+        alert("You have made 3 mistakes. Game Over!");
     }
 }
 
 // Comprueba si todas las casillas del tablero coinciden con la solución del Sudoku.
-function comprobarVictoria(){
-    for(let fila = 0; fila < 9; fila++){
-        for(let columna = 0; columna < 9; columna++){
-            if(visibles[fila][columna] !== sudoku[fila][columna]){
+function VictoryCheck () {
+    for (let row = 0; row < 9; row++) {
+        for (let column = 0; column < 9; column++) {
+            if (VisibleNumbers[row][column] !== sudoku[row][column]) {
                 return false;
             }
         }
     }
-    alert("¡¡Sudoku completado!!");
+    alert("¡¡Sudoku Completed!!");
     return true;
 }
 
 // Inicia una nueva partida cuando el jugador pulsa el botón correspondiente.
-const botonNueva = document.getElementById("nuevaPartida");
-if(botonNueva){
-    botonNueva.addEventListener("click", iniciarJuego);
+const NewGame = document.getElementById("NewGame-Restart");
+if (NewGame) {
+    NewGame.addEventListener("click", StartGame);
 }
 
 // Inicia automáticamente una partida cuando la página termina de cargar.
-window.onload = iniciarJuego;
+window.onload = StartGame;
