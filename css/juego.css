@@ -2,13 +2,13 @@ h1{
     margin-bottom:20px;
 }
 
-#tablero{
+.board {
     display:grid;
     grid-template-columns:repeat(9,60px);
     grid-template-rows:repeat(9,60px);
 }
 
-.casilla{
+.cell {
     width:60px;
     height:60px;
     border:1px solid black;
@@ -20,27 +20,17 @@ h1{
     user-select:none;
 }
 
-.seleccionada{
+.selected {
     background:#bde0fe;
 }
 
-/* Bordes gruesos */
-
-.bordeDerecha{
-    border-right:3px solid black;
-}
-
-.bordeAbajo{
-    border-bottom:3px solid black;
-}
-
-#tablero{
+.board{
     display:grid;
     grid-template-columns:repeat(9,60px);
     grid-template-rows:repeat(9,60px);
 }
 
-.casilla{
+.cell {
     width:60px;
     height:60px;
     display:flex;
@@ -52,14 +42,14 @@ h1{
     user-select:none;
 }
 
-.casilla:hover{
+.cell:hover{
     background:#ececec;
 }
 
-.seleccionada{
+.selected{
     background:#8ec5ff;
 }
 
-.fija{
+.fixed {
     font-weight:bold;
 }

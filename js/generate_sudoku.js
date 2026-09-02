@@ -1,15 +1,15 @@
-// Aleatoriza los numeros del 1 al 9 para guardar en el tablero de manera aleatoria y no siempre en el mismo orden
-function RandomizeNumbers () {
+// Randomize the numbers from 1 to 9
+function randomizeNumbers() {
     const numbers = [1,2,3,4,5,6,7,8,9];
     for (let i = numbers.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random() * (i + 1));
         [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
     }
     return numbers;
 }
 
-// Busca una casilla vacia para llenarla obtiendo su posicion de fila y columna
-function CellEmptySearch (board) {
+// Find the first empty cell in the sudoku
+function findEmptyCell(board) {
     for (let row = 0; row < 9; row++) {
         for(let column = 0; column < 9; column++) {
             if (board[row][column] === 0) {
@@ -20,59 +20,57 @@ function CellEmptySearch (board) {
     return null;
 }
 
-// Cuando hay una casilla vacia, se intenta llenar con el array de numeros aleatorios de RandomizeNumbers() y se valida si es posible guardarlo, si no es posible se vuelve a intentar con otro numero del mismo array hasta que se llene el sudoku
-function SudokuSolver (board) {
-    let position = CellEmptySearch(board);
+// Solve the sudoku using backtracking
+function solveSudoku(board) {
+    const position = findEmptyCell(board);
 
-    // Si no hay casilla vacia -> Soduko Completo
+    // If there are no empty cells, the sudoku is complete
     if (position === null) {
         return true;
     }
 
-    // Obtenemos la fila y columna de la casilla vacia, junto con el array de los numeros aleatorios
-    let row = position[0];
-    let column = position[1];
-    let numbers = RandomizeNumbers();
+    const row = position[0];
+    const column = position[1];
+    const numbers = randomizeNumbers();
 
-    // Repasamos cada numero hasta encontrar uno que cumpla los requisitos
-    for (let number of numbers) {
-    if (ValidSave (board, row, column, number) === true) {
-        board[row][column] = number;
-        if (SudokuSolver(board)) {
-            return true;
+    // Try each number until a valid solution is found
+    for (const number of numbers) {
+        if (isValidMove(board, row, column, number) === true) {
+            board[row][column] = number;
+            // Continue solving the remaining cells
+            if (solveSudoku(board)) {
+                return true;
+            }
+            // Backtrack if the current number leads to a dead end
+            board[row][column] = 0;
         }
-        board[row][column] = 0;
-    }}
+    }
     return false;
 }
 
-// Reobtienes todo el soduko otra vez para que no halla conflictos con el soduko que se muestra al jugador 
-function SudokuCopyBackup () {
-    VisibleNumbers = sudoku.map(row => [...row]);
+// Create a copy of the complete sudoku for the player
+function copySudoku() {
+    visibleSudoku = sudoku.map(row => [...row]);
 }
 
-// Dependendido de la dificultad, se ocultan los numeros del soduko que se le mostrara al jugador
-function HideNumbers (amount) {
-    while (amount > 0){
-        let row = Math.floor(Math.random()*9);
-        let column = Math.floor(Math.random()*9);
-        if (VisibleNumbers[row][column] !== 0) {
-            VisibleNumbers[row][column] = 0;
+// Hide a specific amount of numbers from the visible sudoku
+function hideNumbers(amount) {
+    while (amount > 0) {
+        const row = Math.floor(Math.random() * 9);
+        const column = Math.floor(Math.random() * 9);
+        if (visibleSudoku[row][column] !== 0) {
+            visibleSudoku[row][column] = 0;
             amount--;
         }
     }
 }
 
-// Ejecuta todos las funciones que ya tenemos y genera el soduko completo, copia el soduko y oculta los numeros dependiendo de la dificultad
-function GenerateSudoku () {
+// Generate a complete sudoku and hide numbers according to the selected difficulty
+function generateSudoku () {
     sudoku = Array.from({ length: 9 }, () => Array(9).fill(0));
-    SudokuSolver(sudoku);
-    SudokuCopyBackup();
-    HideNumbers(difficulty);
+    solveSudoku(sudoku);
+    copySudoku();
+    hideNumbers(difficultySelected);
 }
 
-GenerateSudoku();
-console.log("SOLUCIÓN");
-console.table(sudoku);
-console.log("TABLERO");
-console.table(VisibleNumbers);
+generateSudoku();

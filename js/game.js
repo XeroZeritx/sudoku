@@ -1,38 +1,47 @@
+// Number of mistakes made by the player
 let errors = 0;
-// Inicia una nueva partida, reiniciando los errors y generando un nuevo Sudoku.
-function StartGame(){
+// Maximum number of mistakes allowed before the game ends
+const max_errors = 3;
+
+// Start a new game by resetting the errors and generating a new sudoku
+function startGame(){
     errors = 0;
-    GenerateSudoku();
-    BoardDrawing();
+    generateSudoku();
+    drawBoard();
+
+    // Test the sudoku generation and visibility
+    console.log("SOLUTION");
+    console.table(sudoku);
+    console.log("VISIBLE SUDOKU");
+    console.table(visibleSudoku);
 }
 
-// Aumenta el contador de errors y finaliza la partida si el jugador alcanza 3 errors.
-function ErrorPlayer () {
+// Register a mistake made by the player and end the game after 3 mistakes
+function registerError() {
     errors++;
     console.log("Errors:", errors);
-    if (errors >= 3){
-        alert("You have made 3 mistakes. Game Over!");
+    if (errors >= max_errors){
+        alert("You have made " + max_errors + " mistakes. Game Over!");
     }
 }
 
-// Comprueba si todas las casillas del tablero coinciden con la solución del Sudoku.
-function VictoryCheck () {
+// Check if all cells of the visible Sudoku match the solution.
+function checkVictory() {
     for (let row = 0; row < 9; row++) {
         for (let column = 0; column < 9; column++) {
-            if (VisibleNumbers[row][column] !== sudoku[row][column]) {
+            if (visibleSudoku[row][column] !== sudoku[row][column]) {
                 return false;
             }
         }
     }
-    alert("¡¡Sudoku Completed!!");
     return true;
 }
 
-// Inicia una nueva partida cuando el jugador pulsa el botón correspondiente.
+// Get the "New Game" button from the HTML
 const NewGame = document.getElementById("NewGame-Restart");
 if (NewGame) {
-    NewGame.addEventListener("click", StartGame);
+    NewGame.addEventListener("click", startGame);
 }
 
-// Inicia automáticamente una partida cuando la página termina de cargar.
-window.onload = StartGame;
+// Start a new game when the page finishes loading
+window.onload = startGame;
