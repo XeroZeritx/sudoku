@@ -50,6 +50,9 @@ function selectCell(cell) {
 // Detect when the player presses a number key
 document.addEventListener("keydown", (event) => {
 
+    // Do nothing if the game has ended
+    if (gameOver) return;
+
     // Do nothing if no cell is selected
     if (cellSelected === null) return;
     const number = Number(event.key);

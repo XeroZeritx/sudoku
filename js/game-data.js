@@ -7,8 +7,14 @@ let visibleSudoku = [];
 // Cell currently selected by the player
 let cellSelected = null;
 
+// Indicates whether the current game has ended
+let gameOver = false;
+
+// Original state of the board when the game starts.
+let initialSudoku = [];
+
 // Difficulty selected by the player
-let difficultySelected = Number(localStorage.getItem("difficulty")) || 30;
+let difficultySelected = Number(localStorage.getItem("difficulty"));
 
 // Numbers entered by the player
 let player = [];

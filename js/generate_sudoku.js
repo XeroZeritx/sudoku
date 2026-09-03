@@ -66,11 +66,10 @@ function hideNumbers(amount) {
 }
 
 // Generate a complete sudoku and hide numbers according to the selected difficulty
-function generateSudoku () {
+function generateSudoku() {
     sudoku = Array.from({ length: 9 }, () => Array(9).fill(0));
     solveSudoku(sudoku);
     copySudoku();
     hideNumbers(difficultySelected);
+    initialSudoku = visibleSudoku.map(row => [...row]);
 }
-
-generateSudoku();

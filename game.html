@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="./css/juego.css">
 </head>
 <body>
-    <main class="Game-Options">
-        <button id="NewGame-Restart">New Game</button>
+    <!-- Options during the game -->
+    <main class="game-options">
+        <button id="new-game-button_options">New Game</button>
     </main>
-    <div class="board" id="board"></div>
+
+    <!-- Sudoku board-->
+    <div class="board" id="board">
+    </div>
+
+    <!-- Section when you lost the game  -->
+    <div id="game-over-modal">
+    <div class="game-over-content">
+        <h2>Game Over</h2>
+        <p>You have made 3 mistakes.</p>
+        <button id="retry-button">Retry</button>
+        <button id="new-game-button_modal">New Game</button>
+    </div>
+</div>
 </body>
 <script src="./js/game-data.js"></script>
 <script src="./js/validations.js"></script>
