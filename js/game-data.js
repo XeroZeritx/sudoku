@@ -10,7 +10,7 @@ let cellSelected = null;
 // Indicates whether the current game has ended
 let gameOver = false;
 
-// Original state of the board when the game starts.
+// Original state of the board when the game starts
 let initialSudoku = [];
 
 // Difficulty selected by the player

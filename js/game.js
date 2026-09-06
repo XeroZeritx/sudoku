@@ -7,15 +7,9 @@ const max_errors = 3;
 // Game over modal and buttons shown upon losing
 const gameOverModal = document.getElementById("game-over-modal");
 const retryButton = document.getElementById("retry-button");
-const newGameButtonOptions = document.getElementById("new-game-button_options");
 const newGameButtonModal = document.getElementById("new-game-button_modal");
-
-// 
 if (retryButton) {
     retryButton.addEventListener("click", retryGame);
-}
-if (newGameButtonOptions) {
-    newGameButtonOptions.addEventListener("click", startGame);
 }
 if (newGameButtonModal) {
     newGameButtonModal.addEventListener("click", startGame);
@@ -32,12 +26,13 @@ function retryGame() {
 }
 
 // Start a new game by resetting the errors and generating a new sudoku
-function startGame(){
+function startGame() {
     errors = 0;
     generateSudoku();
     drawBoard();
+    startTimer();
     gameOver = false;
-    gameOverModal.style.display = "none"; 
+    gameOverModal.style.display = "none";
 
     // Test the sudoku generation and visibility
     console.log("SOLUTION");
@@ -53,9 +48,11 @@ function showGameOverModal() {
 // Register a mistake made by the player and end the game after 3 mistakes
 function registerError() {
     errors++;
+    alert("Haz cometido un error :c");
     console.log("Errors:", errors);
     if (errors >= max_errors) {
         gameOver = true;
+        stopTimer();
         showGameOverModal();
     }
 }
@@ -69,6 +66,7 @@ function checkVictory() {
             }
         }
     }
+    stopTimer();
     return true;
 }
 

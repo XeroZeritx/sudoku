@@ -11,7 +11,7 @@ function randomizeNumbers() {
 // Find the first empty cell in the sudoku
 function findEmptyCell(board) {
     for (let row = 0; row < 9; row++) {
-        for(let column = 0; column < 9; column++) {
+        for (let column = 0; column < 9; column++) {
             if (board[row][column] === 0) {
                 return [row, column];
             }

@@ -40,11 +40,11 @@ function drawBoard() {
 
 // Select a sudoku cell and remove the previous selection
 function selectCell(cell) {
+    cellSelected = cell;
+    cell.classList.add("selected");
     if (cellSelected) {
         cellSelected.classList.remove("selected");
     }
-    cellSelected = cell;
-    cell.classList.add("selected");
 }
 
 // Detect when the player presses a number key
