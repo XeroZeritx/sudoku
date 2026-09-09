@@ -5,29 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku</title>
     <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/juego.css">
+    <link rel="stylesheet" href="./css/game.css">
 </head>
 <body>
     <!-- Options during the game -->
-    <main class="game-options">
-        <div id="timer-options">
+    <main class="game-notifications">
+        <div class="errors-notifications" id="error-counter">
+            <p>Error Count:</p>
+            <span>0</span>
+        </div>
+        <div class="timer-notifications" id="timer-counter">
             <span>00:00</span>
+        </div>
+        <div class="hint-notifications" id="hint-counter">
+            <p>Hint Used:</p>
+            <span>0</span>
         </div>
     </main>
 
-    <!-- Sudoku board-->
-    <div class="board" id="board">
-    </div>
+    <!-- Sudoku board -->
+    <div class="board" id="board"></div>
 
     <!-- Section when you lost the game  -->
-    <div id="game-over-modal">
-    <div class="game-over-content">
-        <h2>Game Over</h2>
-        <p>You have made 3 mistakes.</p>
-        <button id="retry-button">Retry</button>
-        <button id="new-game-button_modal">New Game</button>
+    <div class="game-over-modal" id="game-over-modal">
+        <div class="game-over-content">
+            <h2>Game Over</h2>
+            <p>You have made 3 mistakes.</p>
+            <button class="retry-button" id="retry-button">Retry</button>
+            <button class="new-game-button" id="new-game-button">New Game</button>
+        </div>
     </div>
-</div>
 </body>
 <script src="./js/game-data.js"></script>
 <script src="./js/validations.js"></script>

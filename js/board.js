@@ -40,11 +40,22 @@ function drawBoard() {
 
 // Select a sudoku cell and remove the previous selection
 function selectCell(cell) {
+    document.querySelectorAll(".cell").forEach((currentCell) => {
+        currentCell.classList.remove(
+            "selected",
+            "row-highlight",
+            "column-highlight"
+        );
+    });
     cellSelected = cell;
+    const selectedRow = cell.dataset.row;
+    const selectedColumn = cell.dataset.column;
+    document.querySelectorAll(".cell").forEach((currentCell) => {
+        if (currentCell.dataset.row === selectedRow || currentCell.dataset.column === selectedColumn) {
+            currentCell.classList.add("row-highlight", "column-highlight");
+        }
+    });
     cell.classList.add("selected");
-    if (cellSelected) {
-        cellSelected.classList.remove("selected");
-    }
 }
 
 // Detect when the player presses a number key

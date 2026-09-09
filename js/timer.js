@@ -1,4 +1,4 @@
-let timer = document.getElementById("timer-options");
+let timer = document.getElementById("timer-counter");
 let seconds = 0;
 let minutes = 0;
 let timerInterval = null;

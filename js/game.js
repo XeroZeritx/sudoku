@@ -6,15 +6,8 @@ const max_errors = 3;
 
 // Game over modal and buttons shown upon losing
 const gameOverModal = document.getElementById("game-over-modal");
-const retryButton = document.getElementById("retry-button");
-const newGameButtonModal = document.getElementById("new-game-button_modal");
-if (retryButton) {
-    retryButton.addEventListener("click", retryGame);
-}
-if (newGameButtonModal) {
-    newGameButtonModal.addEventListener("click", startGame);
-    console.log("New Game button in modal clicked");
-}
+const retryButton = document.getElementById("retry-button").addEventListener("click", retryGame);
+const newGameButtonModal = document.getElementById("new-game-button").addEventListener("click", startGame);
 
 // Restart the current sudoku without generating a new one
 function retryGame() {
